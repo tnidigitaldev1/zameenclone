@@ -1,4 +1,5 @@
 import 'dart:math' as Math;
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:zameenclone/Globals.dart';
 import 'package:zameenclone/Services/RestService.dart';
@@ -85,15 +86,390 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
   }
 
+  // https://stackoverflow.com/questions/50909791/flutter-change-text-when-flexiblespacebar-is-collapsed
+
+  int _bottomNavIndex = 2;
+
+  final iconList = <IconData>[
+    Icons.home_outlined,
+    Icons.add_business_outlined,
+    Icons.favorite_outline_rounded,
+    Icons.account_circle_outlined,
+  ];
+  final bottomMenuTitles = <String>[
+    'Home',
+    'Projects',
+    'Favourites',
+        'Profile'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        width: 75,
+        child: FittedBox(
+          child: FloatingActionButton(
+            child: Icon(Icons.search),
+            onPressed: () {},
+            //params
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+        itemCount: iconList.length,
+
+        tabBuilder: (int index, bool isActive) {
+          final color = isActive ? Colors.blue : HexColor('#373A36');
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                iconList[index],
+                size: 24,
+                color: color,
+              ),
+              const SizedBox(height: 4),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  bottomMenuTitles[index],
+                  maxLines: 1,
+                  style: TextStyle(fontSize: 12, color: color),
+                ),
+              )
+            ],
+          );
+        },
+        backgroundColor: Colors.white,
+        activeIndex: _bottomNavIndex,
+        splashColor: Colors.blue.shade100,
+
+        splashSpeedInMilliseconds: 300,
+        notchSmoothness: NotchSmoothness.softEdge,
+        gapLocation: GapLocation.center,
+
+        onTap: (index) {
+          setState(() => _bottomNavIndex = index);
+          print('asdfklasd flaksdf ${index}');
+        },
+        //other params
+      ),
+      drawer: Drawer(
+        width: 270,
+        child: Column(
+          children: [
+            Container(
+              height: 40,
+            ),
+            Container(
+              width: 142,
+              height: 142,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/app_logo.jpg'),
+                  fit: BoxFit.cover,
+                  // colorFilter: ColorFilter.mode(
+                  //     Colors.black.withOpacity(
+                  //       0.6,
+                  //     ),
+                  //     BlendMode.darken),
+                ),
+              ),
+            ),
+            Container(
+              width: 200,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(
+                  color: Colors.blue,
+                  width: 1,
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  'Login or Create an Account',
+                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              height: 30,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.home,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Home',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Add Property',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Search Properties',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.account_balance,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'New Projects',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.favorite_border_outlined,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Favourites',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.saved_search_outlined,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Saved Searches',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.calculate_outlined,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Construction Cost Calculator',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.settings,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Settings',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.info_outline,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'About Us',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.phone,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Contact Us',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 10,
+                            ),
+                            child: Icon(
+                              Icons.policy_outlined,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Terms & Privacy Policy',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ), // Populate the Drawer in the next step.
+      ),
       body: Stack(
         children: [
           CustomScrollView(
             controller: customScrollViewController,
             slivers: <Widget>[
-              TransitionAppBar(
+              SliverAppBar(
                 // title: Text('asdlkf lasdf'),
                 // leading: Text('++++++++'),
                 // bottom: PreferredSize(
@@ -116,63 +492,94 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 //           ],
                 //         ),
                 // ),
+
                 snap: false,
                 pinned: true,
                 floating: false,
-                collapsedHeight: 57,
-                expandedHeight: 230,automaticallyImplyLeading: true,
-                leading: Text('asdf'),
-                actions: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-                  ),
-                ],
+                collapsedHeight: 75,
+                expandedHeight: 190,
+                automaticallyImplyLeading: false,
                 flexibleSpace: LayoutBuilder(builder: (context, constraints) {
                   return FlexibleSpaceBar(
-                    // expandedTitleScale: 1,
+                    expandedTitleScale: 1,
                     title: Container(
                       padding: const EdgeInsets.only(left: 0, right: 00, top: 0, bottom: 0),
                       height: 40,
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white.withOpacity(0.7),
-                            spreadRadius: 3,
-                            blurRadius: 5,
-                            offset: Offset(-2,-2),
+                          // color: Colors.blue,
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.white.withOpacity(0.7),
+                          //     spreadRadius: 3,
+                          //     blurRadius: 5,
+                          //     offset: Offset(-2, -2),
+                          //   ),
+                          // ],
                           ),
-                        ]
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 15),
+                              child: InkWell(
+                                onTap: () {
+                                  Scaffold.of(context).openDrawer();
+                                },
+                                child: Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
-                          filled: true,
-                          hintStyle: TextStyle(color: Colors.grey.shade600),
-                          hintText: "Search property",
-                          fillColor: Colors.white70,
-                        ),
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey.shade800,
-                        ),
+                          Expanded(
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                filled: true,
+                                hintStyle: TextStyle(color: Colors.grey.shade600),
+                                hintText: "Search property",
+                                fillColor: Colors.white,
+                                contentPadding: EdgeInsets.zero,
+                                // contentPadding: EdgeInsets.only(left: -15),
+                                prefixIcon: Padding(
+                                  padding: EdgeInsets.zero,
+                                  child: Icon(
+                                    Icons.search,
+                                    size: 12,
+                                  ),
+                                ),
+                              ),
+                              maxLines: 1,
+                              textAlignVertical: TextAlignVertical.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey.shade800,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    titlePadding: EdgeInsetsDirectional.only(
-                      start: 20,
-                      bottom: 15,
-                      end: 20
-                    ),
+                    titlePadding: EdgeInsetsDirectional.only(start: 20, bottom: 15, end: 20),
                     collapseMode: CollapseMode.parallax,
-                    background: SizedBox(
+                    background: Container(
                       width: 300,
                       height: 200,
-                      child: Image.asset(
-                        'assets/home_sliver_bk.jpg',
-                        fit: BoxFit.cover,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/home_sliver_bk.png'),
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(
+                                0.6,
+                              ),
+                              BlendMode.darken),
+                        ),
                       ),
                     ),
                   );
@@ -204,7 +611,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       SizedBox(
                         height: 200,
                         child: Card(
-                          elevation: 12,
+                          elevation: 8,
                           child: Column(
                             children: [
                               // Column(
@@ -294,24 +701,50 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 200,
-                        child: Card(
-                          child: Column(
-                            children: [
-                              Text(
-                                'Construction Cost Calculator',
-                              ),
-                              Text(
-                                'Get a quick estimate of your house\'s construction cost.',
-                              ),
-                              Text(
-                                'Try it Now',
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: 200,
+                      //   child: Card(
+                      //     child: Column(
+                      //       children: [
+                      //         Text(
+                      //           'Construction Cost Calculator',
+                      //         ),
+                      //         TextFormField(
+                      //           decoration: InputDecoration(
+                      //             border: OutlineInputBorder(
+                      //               borderRadius: BorderRadius.circular(50.0),
+                      //             ),
+                      //             filled: true,
+                      //             hintStyle: TextStyle(color: Colors.grey.shade600),
+                      //             hintText: "Search property",
+                      //             fillColor: Colors.white70,
+                      //             contentPadding: EdgeInsets.zero,
+                      //             // contentPadding: EdgeInsets.only(left: -15),
+                      //             prefixIcon: Padding(
+                      //               padding: EdgeInsets.zero,
+                      //               child: Icon(
+                      //                 Icons.search,
+                      //                 size: 16,
+                      //               ),
+                      //             ),
+                      //           ),
+                      //           maxLines: 1,
+                      //           textAlignVertical: TextAlignVertical.center,
+                      //           style: TextStyle(
+                      //             fontSize: 16,
+                      //             color: Colors.grey.shade800,
+                      //           ),
+                      //         ),
+                      //         Text(
+                      //           'Get a quick estimate of your house\'s construction cost.',
+                      //         ),
+                      //         Text(
+                      //           'Try it Now',
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         child: Card(
                           child: Padding(
@@ -1191,5 +1624,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
       ],
     );
+  }
+}
+
+class HexColor extends Color {
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll('#', '');
+    if (hexColor.length == 6) {
+      hexColor = 'FF' + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
   }
 }

@@ -14,6 +14,7 @@ dependencies:
   http: 0.13.5
   cupertino_icons: ^1.0.2
   shimmer_animation: 2.1.0
+  animated_bottom_navigation_bar: 1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -25,5 +26,7 @@ flutter:
   assets:
     - assets/sliver_bk.png
     - assets/home_sliver_bk.jpg
+    - assets/home_sliver_bk.png
+    - assets/app_logo.jpg
 
   uses-material-design: true
