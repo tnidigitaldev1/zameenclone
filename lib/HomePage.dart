@@ -2,6 +2,7 @@ import 'dart:math' as Math;
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:zameenclone/Globals.dart';
+import 'package:zameenclone/PostAddPage.dart';
 import 'package:zameenclone/Services/RestService.dart';
 import 'package:zameenclone/Widgets/CustomTabIndicator.dart';
 import 'package:zameenclone/Widgets/HomePropShimmer.dart';
@@ -10,6 +11,7 @@ import 'package:zameenclone/Widgets/PropTypesTabPage.dart';
 import 'package:zameenclone/model/PropType.dart';
 import 'package:zameenclone/model/SubType.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
+import 'WebViewPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -146,14 +148,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: Colors.white,
         activeIndex: _bottomNavIndex,
         splashColor: Colors.blue.shade100,
-
         splashSpeedInMilliseconds: 300,
         notchSmoothness: NotchSmoothness.softEdge,
         gapLocation: GapLocation.center,
-
         onTap: (index) {
           setState(() => _bottomNavIndex = index);
           print('asdfklasd flaksdf ${index}');
+          switch(index){
+            case 2:
+              // Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> WebViewPage()));
+              return;
+          }
         },
         //other params
       ),
@@ -601,7 +606,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 'Looking to sell or rent out your property?',
                               ),
                               ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>PostAddPage()));
+                                },
                                 child: Text('Post an Ad'),
                               ),
                             ],
