@@ -3,6 +3,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:zameenclone/Globals.dart';
 import 'package:zameenclone/PostAddPage.dart';
+import 'package:zameenclone/SearchAddsPage.dart';
 import 'package:zameenclone/Services/RestService.dart';
 import 'package:zameenclone/Widgets/CustomTabIndicator.dart';
 import 'package:zameenclone/Widgets/HomePropShimmer.dart';
@@ -113,7 +114,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child: FittedBox(
           child: FloatingActionButton(
             child: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (ctx)=>SearchAddsPage()));
+            },
             //params
           ),
         ),
