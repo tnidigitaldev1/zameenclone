@@ -600,117 +600,99 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      SizedBox(
-                        height: 200,
-                        child: Card(
-                          child: Column(
-                            children: [
-                              Text(
-                                'Looking to sell or rent out your property?',
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>PostAddPage()));
-                                },
-                                child: Text('Post an Ad'),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 200,
-                        child: Card(
-                          elevation: 8,
-                          child: Column(
-                            children: [
-                              // Column(
-                              //   children: [
-                              //     Text(
-                              //         'Browse Properties ${propTypes.where((element) => element.id == selectedPropTypeId)}'),
-                              //     // Text('${selectedPropTypeId}'),
-                              //   ],
-                              // ),
-                              // tabController2 == null
-                              //     ? Container()
-                              //     : TabBar(
-                              //         controller: tabController2,
-                              //         labelColor: Colors.black,
-                              //         // labelPadding: EdgeInsets.only(left: 0, right: 0, top: 10, bottom: 10),
-                              //         isScrollable: true,
-                              //         onTap: (index) {
-                              //           setState(() {
-                              //             selectedTabIndex = index;
-                              //             selectedPropTypeId = propTypes[index].id;
-                              //           });
-                              //         },
-                              //         // indicatorPadding: EdgeInsets.only(left: 25, right: 25),
-                              //         padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
-                              //         tabs: [
-                              //           ...propTypes.map(
-                              //             (e) {
-                              //               return Tab(
-                              //                 iconMargin: EdgeInsets.zero,
-                              //                 height: 40,
-                              //                 icon: Icon(
-                              //                   Icons.account_balance_wallet_outlined,
-                              //                   size: 20,
-                              //                   color: Colors.black,
-                              //                 ),
-                              //                 text: e.name,
-                              //               );
-                              //             },
-                              //           ),
-                              //         ],
-                              //       ),
-                              // tabController2 == null
-                              //     ? Container()
-                              //     : Expanded(
-                              //         child: TabBarView(
-                              //           controller: tabController2,
-                              //           children: [
-                              //             ...propTypes.map(
-                              //               (pt) => PropTypesTabPage(
-                              //                   subTypes.where((element) => element.typeId == pt.id).toList()),
-                              //             ),
-                              //           ],
-                              //         ),
-                              //       ),
-                              // // TabBarView(children: [children])
-                              // Center(
-                              //   child: Row(
-                              //     mainAxisAlignment: MainAxisAlignment.center,
-                              //     children: [
-                              //       ElevatedButton(
-                              //         onPressed: () {
-                              //           getTypes();
-                              //         },
-                              //         child: Text(
-                              //           'Get Data',
-                              //         ),
-                              //       ),
-                              //       Container(
-                              //         width: 20,
-                              //       ),
-                              //       ElevatedButton(
-                              //         onPressed: () {
-                              //           setState(() {
-                              //             // isPillSelected = !isPillSelected;
-                              //             gSelectPill.value = !gSelectPill.value;
-                              //             print('Pill Selected ? : ${gSelectPill.value}');
-                              //           });
-                              //         },
-                              //         child: Text(
-                              //           'Toggle Pill',
-                              //         ),
-                              //       ),
-                              //     ],
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      // SizedBox(
+                      //   height: 200,
+                      //   child: Card(
+                      //     elevation: 8,
+                      //     child: Column(
+                      //       children: [
+                      //         // Column(
+                      //         //   children: [
+                      //         //     Text(
+                      //         //         'Browse Properties ${propTypes.where((element) => element.id == selectedPropTypeId)}'),
+                      //         //     // Text('${selectedPropTypeId}'),
+                      //         //   ],
+                      //         // ),
+                      //         // tabController2 == null
+                      //         //     ? Container()
+                      //         //     : TabBar(
+                      //         //         controller: tabController2,
+                      //         //         labelColor: Colors.black,
+                      //         //         // labelPadding: EdgeInsets.only(left: 0, right: 0, top: 10, bottom: 10),
+                      //         //         isScrollable: true,
+                      //         //         onTap: (index) {
+                      //         //           setState(() {
+                      //         //             selectedTabIndex = index;
+                      //         //             selectedPropTypeId = propTypes[index].id;
+                      //         //           });
+                      //         //         },
+                      //         //         // indicatorPadding: EdgeInsets.only(left: 25, right: 25),
+                      //         //         padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 0),
+                      //         //         tabs: [
+                      //         //           ...propTypes.map(
+                      //         //             (e) {
+                      //         //               return Tab(
+                      //         //                 iconMargin: EdgeInsets.zero,
+                      //         //                 height: 40,
+                      //         //                 icon: Icon(
+                      //         //                   Icons.account_balance_wallet_outlined,
+                      //         //                   size: 20,
+                      //         //                   color: Colors.black,
+                      //         //                 ),
+                      //         //                 text: e.name,
+                      //         //               );
+                      //         //             },
+                      //         //           ),
+                      //         //         ],
+                      //         //       ),
+                      //         // tabController2 == null
+                      //         //     ? Container()
+                      //         //     : Expanded(
+                      //         //         child: TabBarView(
+                      //         //           controller: tabController2,
+                      //         //           children: [
+                      //         //             ...propTypes.map(
+                      //         //               (pt) => PropTypesTabPage(
+                      //         //                   subTypes.where((element) => element.typeId == pt.id).toList()),
+                      //         //             ),
+                      //         //           ],
+                      //         //         ),
+                      //         //       ),
+                      //         // // TabBarView(children: [children])
+                      //         // Center(
+                      //         //   child: Row(
+                      //         //     mainAxisAlignment: MainAxisAlignment.center,
+                      //         //     children: [
+                      //         //       ElevatedButton(
+                      //         //         onPressed: () {
+                      //         //           getTypes();
+                      //         //         },
+                      //         //         child: Text(
+                      //         //           'Get Data',
+                      //         //         ),
+                      //         //       ),
+                      //         //       Container(
+                      //         //         width: 20,
+                      //         //       ),
+                      //         //       ElevatedButton(
+                      //         //         onPressed: () {
+                      //         //           setState(() {
+                      //         //             // isPillSelected = !isPillSelected;
+                      //         //             gSelectPill.value = !gSelectPill.value;
+                      //         //             print('Pill Selected ? : ${gSelectPill.value}');
+                      //         //           });
+                      //         //         },
+                      //         //         child: Text(
+                      //         //           'Toggle Pill',
+                      //         //         ),
+                      //         //       ),
+                      //         //     ],
+                      //         //   ),
+                      //         // ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       // SizedBox(
                       //   height: 200,
                       //   child: Card(
@@ -1595,6 +1577,869 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     ),
                                   ],
                                 ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Recent Searches',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Container(
+                                  height: 5,
+                                ),
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 0, right: 10, top: 0, bottom: 0),
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(minWidth: 160),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.search_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'House for Sale',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    'All area sizes',
+                                                    style: TextStyle(
+                                                        fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.location_on_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Karachi',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.local_offer_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Any Price',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 0, right: 10, top: 0, bottom: 0),
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(minWidth: 160),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.search_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Plots for Sale',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    'All area sizes',
+                                                    style: TextStyle(
+                                                        fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.location_on_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Karachi',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.local_offer_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Any Price',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 0, right: 10, top: 0, bottom: 0),
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(minWidth: 160),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.search_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Farm House for Sale',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    'All area sizes',
+                                                    style: TextStyle(
+                                                        fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.location_on_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Karachi',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.local_offer_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Any Price',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 0, right: 10, top: 0, bottom: 0),
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(minWidth: 160),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.search_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Flat for Sale',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    'All area sizes',
+                                                    style: TextStyle(
+                                                        fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.location_on_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Karachi',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.local_offer_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Any Price',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 0, right: 10, top: 0, bottom: 0),
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(minWidth: 160),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Colors.grey.shade200,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.all(
+                                                Radius.circular(10),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(10),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.search_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Home for Sale',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    'All area sizes',
+                                                    style: TextStyle(
+                                                        fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.location_on_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Karachi',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    height: 5,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Transform(
+                                                        alignment: Alignment.center,
+                                                        transform: Matrix4.rotationY(Math.pi),
+                                                        child: Icon(
+                                                          Icons.local_offer_outlined,
+                                                          size: 16,
+                                                          color: Colors.blue,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Any Price',
+                                                        style: TextStyle(
+                                                            fontSize: 16,
+                                                            fontWeight: FontWeight.bold,
+                                                            color: Colors.blue),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        child: Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Viewed Properties',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          HomePropShimmer('SUPER HOT', '22 HRS AGO'),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                'PKR ',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '6.5 Crore',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Bath Island, Karachi ',
+                                            style: TextStyle(
+                                                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                                          ),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Flat for sale',
+                                            style: TextStyle(
+                                                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.area_chart,
+                                                size: 15,
+                                              ),
+                                              Text(
+                                                '2000 Sq. Ft.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  // fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          HomePropShimmer('HOT', '1 MONTH AGO'),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                'PKR ',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '5.3 Crore',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Nazimabad, Karachi ',
+                                            style: TextStyle(
+                                                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                                          ),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'House for sale',
+                                            style: TextStyle(
+                                                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.area_chart,
+                                                size: 15,
+                                              ),
+                                              Text(
+                                                '1950 Sq. Ft.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  // fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          HomePropShimmer('SUPER HOT', '1 WEEK AGO'),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                'PKR ',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '85 Lac',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Khokhrapar, Malir',
+                                            style: TextStyle(
+                                                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                                          ),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Home for sale',
+                                            style: TextStyle(
+                                                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.area_chart,
+                                                size: 15,
+                                              ),
+                                              Text(
+                                                '80 Sq. Yd.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  // fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          HomePropShimmer('HOT', '1 DAY AGO'),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                'PKR ',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '6.5 Crore',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Bath Island, Karachi ',
+                                            style: TextStyle(
+                                                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                                          ),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Flat for sale',
+                                            style: TextStyle(
+                                                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.area_chart,
+                                                size: 15,
+                                              ),
+                                              Text(
+                                                '2000 Sq. Ft.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  // fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          HomePropShimmer('SUPER HOT', '11 HRS AGO'),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                'PKR ',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              Text(
+                                                '6.5 Crore',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            'Bath Island, Karachi ',
+                                            style: TextStyle(
+                                                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey),
+                                          ),
+                                          Container(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Flat for sale',
+                                            style: TextStyle(
+                                                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blue),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.area_chart,
+                                                size: 15,
+                                              ),
+                                              Text(
+                                                '2000 Sq. Ft.',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  // fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 200,
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Text(
+                                'Looking to sell or rent out your property?',
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>PostAddPage()));
+                                },
+                                child: Text('Post an Ad'),
                               ),
                             ],
                           ),
